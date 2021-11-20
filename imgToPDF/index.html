@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image to PDF</title>
+    <script src="jspdf.min.js"></script>
+</head>
+<body>
+    <input id="imageFile" type="file">
+    <a href="javascript:createPDF();">Create PDF</a>
+    <script>
+        function createPDF() {
+            // let doc = new jsPDF();
+            let file = document.getElementById("imageFile").files[0];
+            let reader = new FileReader();
+            reader.onload = function(fileLoadedEvent) {
+               let srcData = fileLoadedEvent.target.result;
+               let newImage = document.createElement("img");
+               newImage.src = srcData;
+               let doc = new jsPDF('p','px');
+               doc.addImage(srcData,"JPEG",0,0,newImage.width,newImage.height,"img","FAST",0);   
+               doc.save("test.pdf"); 
+               console.log("PDF file created");
+            }
+            reader.readAsDataURL(file);                  
+        }
+    </script>
+
+</body>
+</html>x
