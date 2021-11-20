@@ -1,1 +1,0 @@
-- .save() does not work on mobile devices, use the cordova file plugin for this instead
