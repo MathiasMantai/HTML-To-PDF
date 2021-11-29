@@ -1,5 +1,6 @@
-# Image-To-PDF
-The user can load images through an input field and save them as PDF files
+# HTML-To-PDF
+img-to-pdf: Upload Images and Download as PDF
+htmlForm-to-pdf: Download PDF of Form Data
 
 NOTES: 
 - .save() does not work on mobile devices, use the cordova file plugin for this instead
